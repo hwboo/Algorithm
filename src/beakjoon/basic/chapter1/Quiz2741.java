@@ -1,4 +1,4 @@
-package beakjoon.chapter1;
+package beakjoon.basic.chapter1;
 
 import java.util.Scanner;
 
