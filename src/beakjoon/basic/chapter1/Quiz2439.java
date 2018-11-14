@@ -8,7 +8,7 @@ public class Quiz2439 {
 
 	public static void main(String[] args) throws IOException {
 		// https://www.acmicpc.net/problem/2439
-			
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int num = Integer.parseInt(br.readLine());
 		br.close();
