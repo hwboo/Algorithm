@@ -5,28 +5,22 @@ import java.util.Scanner;
 public class Quiz9012 {
 
 	public static void main(String[] args) {
-		// https://www.acmicpc.net/problem/9012
-		
 		Scanner scanner = new Scanner(System.in);
-		int num = Integer.parseInt(scanner.nextLine());
-		StringBuffer res = new StringBuffer();
-		for (int i = 0; i < num; i++) {
-			char[] line = scanner.nextLine().toCharArray();
-			int cnt = 0;
-			for (int j = 0; j < line.length; j++) {
-				if (line[j] == '(') {
-					cnt++;
+		int num = scanner.nextInt();
+		boolean isFirst = true;
+		while (num >= 0) {
+			String line = scanner.nextLine();
+			if (isFirst) {
+				isFirst = false;
+			} else {
+				int cnt = line.split("\\(").length - 1;
+				if (cnt * 2 == line.length()) {
+					System.out.println("YES");
 				} else {
-					cnt--;
+					System.out.println("NO");
 				}
-				if (cnt < 0)
-					break;
 			}
-			res.append(cnt == 0 ? "YES" : "NO");
-			if (i != num - 1) {
-				res.append("\n");
-			}
+			num--;
 		}
-		System.out.println(res);
 	}
 }
