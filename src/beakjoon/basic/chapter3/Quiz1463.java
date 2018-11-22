@@ -14,10 +14,6 @@ public class Quiz1463 {
 		System.out.print(val);
 	}
 
-	private static int getDownUp(int n) {
-		return 0;
-	}
-
 	private static int getTopDown(int n) {
 		if (n == 1) {
 			return 0;
@@ -36,6 +32,21 @@ public class Quiz1463 {
 			int temp = getTopDown(n / 3) + 1;
 			if (temp < memo[n]) {
 				memo[n] = temp;
+			}
+		}
+		return memo[n];
+	}
+	
+	private static int getDownUp(int n) {
+		memo[0] = 1;
+		memo[1] = 1;
+		for (int i = 2; i <= n; i++) {
+			memo[i] = memo[i - 1] + 1;
+			if (i % 2 == 0 && memo[i] > memo[i / 2] + 1) {
+				memo[i] = memo[i / 2] + 1;
+			}
+			if (i % 3 == 0 && memo[i] > memo[i / 3] + 1) {
+				memo[i] = memo[i / 3] + 1;
 			}
 		}
 		return memo[n];
